@@ -16,8 +16,8 @@ const NavBar = () => {
       <div></div>
       <div className="flex items-center gap-5 text-accent">
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/career">Career</NavLink>
+        <NavLink to="/auth/login">Login</NavLink>
+        <NavLink to="/auth/register">Register</NavLink>
       </div>
       <div className="flex items-center gap-5">
         <img className="w-11 rounded-full" src={`${user?user.photoURL: userImg}`} alt="" />
