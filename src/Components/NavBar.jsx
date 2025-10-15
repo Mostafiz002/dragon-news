@@ -7,7 +7,9 @@ const NavBar = () => {
   const { user, logOut } = use(AuthContext);
 
   const handleLogout = () => {
-    logOut().then(()=>alert('logged out successfully'))
+    logOut()
+      .then(() => alert("logged out successfully"))
+      .catch((err) => console.log(err));
   };
   return (
     <div className="flex items-center justify-between">
