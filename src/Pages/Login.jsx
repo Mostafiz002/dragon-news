@@ -1,6 +1,7 @@
 import React, { use, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
+import SocialLogin from "../Components/homeLayouts/SocialLogin";
 
 const Login = () => {
   const { signIn } = use(AuthContext);
@@ -26,7 +27,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center min-h-screen items-center">
+    <div className="flex justify-center  items-center">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl pt-10">
         <h2 className="font-semibold text-2xl text-center">
           Login your account
@@ -54,7 +55,7 @@ const Login = () => {
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
-            {error&& <p className="text-red-600 text-sm">{error}</p>}
+            {error && <p className="text-red-600 text-sm">{error}</p>}
             <button type="submit" className="btn btn-neutral mt-4">
               Login
             </button>
@@ -65,6 +66,7 @@ const Login = () => {
               </Link>
             </p>
           </fieldset>
+          <SocialLogin />
         </form>
       </div>
     </div>

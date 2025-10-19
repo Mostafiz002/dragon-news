@@ -7,6 +7,7 @@ import LeftAside from "../Components/homeLayouts/LeftAside";
 import RightAside from "../Components/homeLayouts/RightAside";
 import { useNavigation } from "react-router";
 import Loading from "../Components/Loading";
+import Footer from "../Components/Footer";
 
 const HomeLayouts = () => {
   const { state } = useNavigation();
@@ -33,6 +34,7 @@ const HomeLayouts = () => {
           <RightAside></RightAside>
         </aside>
       </main>
+      <Footer className="w-11/12 mx-auto " />
     </div>
   );
 };

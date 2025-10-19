@@ -3,9 +3,13 @@ import app from "../Firebase/firebase.config";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  GithubAuthProvider,
+  GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
+  TwitterAuthProvider,
   updateProfile,
 } from "firebase/auth";
 
@@ -17,6 +21,9 @@ export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+  const xProvider = new TwitterAuthProvider();
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -30,6 +37,18 @@ const AuthProvider = ({ children }) => {
   const signIn = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const googleSignIn = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
+
+  const githubSignin = () => {
+    return signInWithPopup(auth, githubProvider);
+  };
+  const xSignin = () => {
+    return signInWithPopup(auth, xProvider);
   };
 
   const updateUser = (updatedData) => {
@@ -56,6 +75,9 @@ const AuthProvider = ({ children }) => {
     loading,
     setLoading,
     updateUser,
+    googleSignIn,
+    githubSignin,
+    xSignin,
   };
 
   return <AuthContext value={authData}>{children}</AuthContext>;

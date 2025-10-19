@@ -5,7 +5,7 @@ const LatestNews = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("../public/news.json")
+    fetch("/news.json")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -18,15 +18,6 @@ const LatestNews = () => {
             {d.title}
           </p>
         ))}
-        {/* <p className="font-bold">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores{" "}
-        </p>
-        <p className="font-bold">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores{" "}
-        </p>
-        <p className="font-bold">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores{" "}
-        </p> */}
       </Marquee>
     </div>
   );
