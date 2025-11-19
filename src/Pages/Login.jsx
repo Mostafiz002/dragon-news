@@ -17,6 +17,7 @@ const Login = () => {
     signIn(email, password)
       .then(() => {
         navigate(`${location.state ? location.state : "/"}`);
+        
       })
       .catch((err) => {
         const errorCode = err.code;
